@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⚡ IA Resumidos Móvil – Clasificador ⚡</title>
+  <style>
+    body { font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #d2fff2, #c6e0ff);
+           color: #222; text-align: center; padding: 20px; }
+    .container { max-width: 500px; background: white; padding: 20px; border-radius: 15px;
+                 box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: auto; }
+    input[type='file'], button { width: 100%; padding: 12px; margin-top: 10px; border-radius: 10px;
+                                 border: 1px solid #ddd; font-size: 16px; }
+    button { background: linear-gradient(135deg, #00c853, #64dd17); color: white; border: none; font-weight: bold;
+             transition: 0.3s; }
+    button:hover { transform: scale(1.05); }
+    .table { margin-top: 20px; border-collapse: collapse; width: 100%; }
+    .table th, .table td { border: 1px solid #ddd; padding: 8px; }
+    h2 { color: #333; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>⚡ IA Resumidos Móvil ⚡<br><small>Clasificador de Datos / Data Classifier</small></h2>
+    <form action="/clasificar" method="post" enctype="multipart/form-data">
+      <input type="file" name="archivo" accept=".csv" required>
+      <button type="submit">🚀 Clasificar / Classify</button>
+    </form>
+
+    {% if error %}
+      <p style="color:red;">❌ {{ error }}</p>
+    {% endif %}
+
+    {% if resultado %}
+      <div class="resultado">
+        <h3>✅ Resultados / Results:</h3>
+        {{ resultado | safe }}
+      </div>
+    {% endif %}
+  </div>
+  <footer style="margin-top:20px; font-size:14px; color:#666;">
+    © 2025 David Castaño ⚡ | Powered by FastAPI + IA
+  </footer>
+</body>
+</html>
